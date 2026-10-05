@@ -1,0 +1,16 @@
+Venna_AI: Mastering the Shell with GitHub Copilot CLI
+
+Prompt Used:
+copilot -p "I committed locally but haven't pushed yet. I want to combine the last two commits into a single commit with a new message." --agent git
+
+Copilot Response:
+git rebase -i HEAD~2
+# change second pick to squash
+git reset --soft HEAD~2
+git commit -m "feat: combine last two commits"
+git push --force-with-lease
+
+Screenshot: See copilot_screenshot.png
+
+Accuracy Ranking: 9/10
+Justification: Very accurate, correctly uses rebase -i HEAD~2 with squash and reset --soft alternative. Explains safety since not pushed yet. Optimizes workflow by staying in terminal.
